@@ -1,0 +1,646 @@
+/* 
+ * Julia Garcia Portfolio Website
+ * Main Stylesheet
+ * 
+ * This stylesheet follows modern CSS practices with:
+ * - CSS variables for easy customization
+ * - Mobile-first responsive design
+ * - Clean, minimalist aesthetic
+ * - BEM naming convention for clarity
+ *
+ * TABLE OF CONTENTS:
+ * 1. CSS Reset
+ * 2. CSS Variables
+ * 3. Base Styles
+ * 4. Typography
+ * 5. Layout
+ * 6. Header & Navigation
+ * 7. Hero Section
+ * 8. About Section
+ * 9. Portfolio Section
+ * 10. Contact Section
+ * 11. Footer
+ * 12. Media Queries
+ */
+
+/* ===== 1. CSS Reset ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== 2. CSS Variables ===== */
+:root {
+  /* Color Palette - Based on modern minimalist trends */
+  --color-primary: #2d2d2d;
+  --color-secondary: #f5f5f5;
+  --color-accent: #e0c3a6;
+  --color-text: #333333;
+  --color-text-light: #767676;
+  --color-background: #ffffff;
+  --color-border: #eeeeee;
+  --color-error: #ff3860;
+  --color-success: #23d160;
+  
+  /* Typography */
+  --font-primary: 'Raleway', sans-serif;
+  --font-secondary: 'Playfair Display', serif;
+  
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 8rem;
+  
+  /* Container Width */
+  --container-width: 1200px;
+  --container-padding: 1.5rem;
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.3s ease;
+  
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+}
+
+/* ===== 3. Base Styles ===== */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+ul {
+  list-style: none;
+}
+
+/* ===== 4. Typography ===== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-secondary);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: var(--space-sm);
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  margin-bottom: var(--space-md);
+}
+
+.section-title {
+  position: relative;
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-xs);
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: var(--color-accent);
+}
+
+/* ===== 5. Layout ===== */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+section {
+  padding: var(--space-lg) 0;
+}
+
+/* ===== 6. Header & Navigation ===== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-background);
+  z-index: 100;
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo__link {
+  font-family: var(--font-secondary);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.nav__list {
+  display: none;
+}
+
+.nav__list--active {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-background);
+  padding: var(--space-md);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  z-index: 99;
+}
+
+.nav__list--active .nav__item {
+  margin: var(--space-xs) 0;
+}
+
+.nav__item {
+  margin-left: var(--space-md);
+}
+
+.nav__link {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.menu-toggle {
+  display: block;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-xs);
+}
+
+.menu-toggle__bar {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background-color: var(--color-primary);
+  margin: 5px 0;
+  transition: var(--transition-medium);
+}
+
+.menu-toggle--active .menu-toggle__bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle--active .menu-toggle__bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle--active .menu-toggle__bar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ===== 7. Hero Section ===== */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: var(--color-secondary);
+  margin-top: 60px;
+}
+
+.hero__content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero__title {
+  font-size: 3rem;
+  margin-bottom: var(--space-sm);
+}
+
+.hero__subtitle {
+  font-size: 1.2rem;
+  color: var(--color-text-light);
+}
+
+/* ===== 8. About Section ===== */
+.about__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.about__image {
+  flex: 1;
+}
+
+.profile-image {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: var(--radius-md);
+  margin: 0 auto;
+  display: block;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.about__text {
+  flex: 1;
+}
+
+/* ===== 9. Portfolio Section ===== */
+.portfolio {
+  background-color: var(--color-secondary);
+}
+
+.portfolio__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+.portfolio__item {
+  background-color: var(--color-background);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.portfolio__item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio__image {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+.portfolio__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-medium);
+}
+
+.portfolio__item:hover .portfolio__img {
+  transform: scale(1.05);
+}
+
+.portfolio__title {
+  padding: var(--space-sm) var(--space-sm) 0;
+}
+
+.portfolio__category {
+  padding: 0 var(--space-sm) var(--space-sm);
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+/* ===== 10. Contact Section ===== */
+.contact__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* Contact Information Styles */
+.contact__info {
+  flex: 1;
+}
+
+.contact__list {
+  margin-top: var(--space-md);
+}
+
+.contact__item {
+  margin-bottom: var(--space-sm);
+  display: flex;
+  align-items: flex-start;
+}
+
+.contact__label {
+  font-weight: 600;
+  margin-right: var(--space-xs);
+  min-width: 80px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.contact__label i {
+  margin-right: 8px;
+  color: var(--color-accent);
+}
+
+.contact__link {
+  position: relative;
+  display: inline-block;
+}
+
+.contact__link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-accent);
+  transition: width var(--transition-medium);
+}
+
+.contact__link:hover::after {
+  width: 100%;
+}
+
+/* Social Media Links in Contact Section */
+.contact__social {
+  margin-top: var(--space-md);
+}
+
+.contact__social-title {
+  font-size: 1.2rem;
+  margin-bottom: var(--space-sm);
+}
+
+.contact__social-list {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.contact__social-item {
+  margin-right: var(--space-xs);
+}
+
+.contact__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.contact__social-link:hover {
+  background-color: var(--color-primary);
+  color: var(--color-background);
+}
+
+.contact__social-link i {
+  font-size: 1.2rem;
+}
+
+/* Contact Form Styles */
+.contact__form {
+  flex: 1;
+  background-color: var(--color-secondary);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+}
+
+.form-group {
+  margin-bottom: var(--space-md);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: var(--space-xs);
+  font-weight: 600;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: var(--space-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  transition: border-color var(--transition-fast);
+  background-color: var(--color-background);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(224, 195, 166, 0.2);
+}
+
+/* Form validation styles */
+.form-input.error,
+.form-textarea.error {
+  border-color: var(--color-error);
+}
+
+.error-message {
+  color: var(--color-error);
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+.form-status {
+  margin-top: var(--space-sm);
+  padding: var(--space-xs);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+}
+
+.form-status.success {
+  background-color: rgba(35, 209, 96, 0.1);
+  color: var(--color-success);
+  border: 1px solid var(--color-success);
+}
+
+.form-status.error {
+  background-color: rgba(255, 56, 96, 0.1);
+  color: var(--color-error);
+  border: 1px solid var(--color-error);
+}
+
+/* Button Styles */
+.btn {
+  display: inline-block;
+  padding: var(--space-sm) var(--space-md);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn--primary {
+  background-color: var(--color-primary);
+  color: var(--color-background);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-accent);
+  color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.btn--primary:active {
+  transform: translateY(0);
+}
+
+/* ===== 11. Footer ===== */
+.footer {
+  background-color: var(--color-primary);
+  color: var(--color-background);
+  padding: var(--space-md) 0;
+}
+
+.footer__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.footer__copyright {
+  margin-bottom: 0;
+}
+
+.social {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.social__link {
+  color: var(--color-background);
+  display: flex;
+  align-items: center;
+}
+
+.social__link i {
+  margin-right: 5px;
+}
+
+.social__link:hover {
+  color: var(--color-accent);
+}
+
+/* ===== 12. Media Queries ===== */
+/* Tablet (768px and up) */
+@media (min-width: 768px) {
+  h1 {
+    font-size: 3rem;
+  }
+  
+  h2 {
+    font-size: 2.5rem;
+  }
+  
+  /* Navigation becomes horizontal on tablet */
+  .nav__list {
+    display: flex;
+  }
+  
+  .menu-toggle {
+    display: none;
+  }
+  
+  /* About section becomes side-by-side */
+  .about__content {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .profile-image {
+    margin: 0;
+  }
+  
+  /* Portfolio grid becomes 2 columns */
+  .portfolio__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Contact section becomes side-by-side */
+  .contact__content {
+    flex-direction: row;
+  }
+  
+  /* Footer becomes horizontal */
+  .footer__content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* Desktop (1024px and up) */
+@media (min-width: 1024px) {
+  .hero__title {
+    font-size: 4rem;
+  }
+  
+  .hero__subtitle {
+    font-size: 1.5rem;
+  }
+  
+  /* Portfolio grid becomes 3 columns */
+  .portfolio__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  /* Increase spacing between contact form and info */
+  .contact__content {
+    gap: var(--space-lg);
+  }
+}
+
+/* Large Desktop (1440px and up) */
+@media (min-width: 1440px) {
+  .container {
+    padding: 0 var(--space-lg);
+  }
+}
