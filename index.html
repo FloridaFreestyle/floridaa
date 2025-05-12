@@ -1,0 +1,250 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Carrefour-El Ticket Mas Bajo">
+    <title>Carrefour</title>
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts - Playfair Display for headings, Raleway for body text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome for social media icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 
+    ==============================================
+    Header/Navigation Section
+    ==============================================
+    Contains the logo and navigation menu
+    - Fixed position at the top of the page
+    - Mobile-responsive with hamburger menu
+    - Smooth scrolling to sections
+    -->
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <div class="logo">
+                    <a href="#" class="logo__link">Carrefour</a>
+                </div>
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                        <li class="nav__item"><a href="#portfolio" class="nav__link">Portfolio</a></li>
+                        <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                    </ul>
+                </nav>
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <span class="menu-toggle__bar"></span>
+                    <span class="menu-toggle__bar"></span>
+                    <span class="menu-toggle__bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 
+    ==============================================
+    Hero Section
+    ==============================================
+    Full-height introduction section
+    - Creates visual impact as the first thing visitors see
+    - Simple, bold statement about design philosophy
+    -->
+    <section class="hero">
+        <div class="container">
+	<img src="images/logo/carrefour.png">
+            <div class="hero__content">
+                <h1 class="hero__title">CARREFOUR</h1>
+                <p class="hero__subtitle">El Ticket Mas Bajo</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+    ==============================================
+    About Section
+    ==============================================
+    Personal introduction with profile image
+    - Responsive layout: stacked on mobile, side-by-side on desktop
+    - Brief professional bio and design philosophy
+    -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about__content">
+                <div class="about__image">
+                    <img src="images/profile/jacques-ehrmann.jpg" alt="Carrefour, supermercado lider en el mercado." class="profile-image">
+                </div>
+                <div class="about__text">
+                    <h2 class="section-title">¿Quién soy?:</h2>
+		    <p>Jacques Ehrmann</p>
+                    <p>Creador y fundador de la linea de supermercados de Carrefour</p>
+		    <p>Carrefour, lider en supermercados.</p>
+                    <p>Si ves 3x2, es Carrefour.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+    ==============================================
+    Portfolio Section
+    ==============================================
+    Showcase of design projects
+    - Responsive grid layout
+    - Hover effects for visual interest
+    - Each project has an image, title, and category
+    - To add more projects, simply copy an article element and update content
+    -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">Portfolio</h2>
+            <div class="portfolio__grid">
+                <article class="portfolio__item">
+                    <div class="portfolio__image">
+                        <img src="images/portfolio/portfolio-2.jpeg" alt="Brand identity design showing logo variations and color palette" class="portfolio__img">
+                    </div>
+                    <h3 class="portfolio__title">Alimentación</h3>
+                    <p class="portfolio__category">Disponible y facil accesibilidad</p>
+                </article>
+                <article class="portfolio__item">
+                    <div class="portfolio__image">
+                        <img src="images/portfolio/portfolio-3.jpeg" alt="Editorial design showing magazine spread with typography and images" class="portfolio__img">
+                    </div>
+                    <h3 class="portfolio__title">Tecnología</h3>
+                    <p class="portfolio__category">Buena y barata</p>
+                </article>
+                <article class="portfolio__item">
+                    <div class="portfolio__image">
+                        <img src="images/portfolio/portfolio-4.jfif" alt="Ropa" class="portfolio__img">
+                    </div>
+                    <h3 class="portfolio__title">Ropa</h3>
+                    <p class="portfolio__category">Para todas las edades y tallas</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+    ==============================================
+    Contact Section
+    ==============================================
+    Contact information and form
+    - Two-column layout on desktop, stacked on mobile
+    - Contact details with icons for better visual hierarchy
+    - Form with validation for name, email, and message
+    - Social media links for additional contact options
+    -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            <div class="contact__content">
+                <div class="contact__info">
+                    <p>Abierta a debatir opiniones y puntos interesantes.</p>
+                    <ul class="contact__list">
+                        <li class="contact__item">
+                            <span class="contact__label"><i class="fas fa-envelope"></i> Email:</span>
+                            <a href="mailto:atencionclientessfc@carrefour.com" class="contact__link">atencionclientessfc@carrefour.com</a>
+                        </li>
+                        <li class="contact__item">
+                            <span class="contact__label"><i class="fas fa-map-marker-alt"></i> Location:</span>
+                            <span class="contact__text">Madrid, ESP</span>
+                        </li>
+                        <li class="contact__item">
+                            <span class="contact__label"><i class="fas fa-phone"></i> Phone:</span>
+                            <a href="tel:+34914689194" class="contact__link">+34 91 468 91 94</a>
+                        </li>
+                    </ul>
+                    
+                    <!-- Social Media Links -->
+                    <div class="contact__social">
+                        <h3 class="contact__social-title">Siguenos</h3>
+                        <ul class="contact__social-list">
+                            <li class="contact__social-item">
+                                <a href="https://es.linkedin.com/company/carrefoures" class="contact__social-link" aria-label="LinkedIn" target="_blank" rel="noopener">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </li>
+                            <li class="contact__social-item">
+                                <a href="https://www.instagram.com/carrefoures/?hl=es" class="contact__social-link" aria-label="Instagram" target="_blank" rel="noopener">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li class="contact__social-item">
+                                <a href="https://www.behance.net/search/projects/Carrefour" class="contact__social-link" aria-label="Behance" target="_blank" rel="noopener">
+                                    <i class="fab fa-behance"></i>
+                                </a>
+                            </li>
+                            <li class="contact__social-item">
+                                <a href="https://dribbble.com/tags/carrefour" class="contact__social-link" aria-label="Dribbble" target="_blank" rel="noopener">
+                                    <i class="fab fa-dribbble"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <form class="contact__form" id="contactForm" novalidate>
+                    <div class="form-group">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" id="name" name="name" class="form-input" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" name="email" class="form-input" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject" class="form-label">Subject</label>
+                        <input type="text" id="subject" name="subject" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" name="message" class="form-textarea" rows="5" required aria-required="true"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn--primary">Send Message</button>
+                    <div class="form-status" aria-live="polite"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+    ==============================================
+    Footer
+    ==============================================
+    Contains copyright information and social links
+    - Responsive layout: stacked on mobile, side-by-side on desktop
+    - Current year is automatically updated with JavaScript
+    -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <p class="footer__copyright">&copy; <span id="currentYear">2025</span> Carrefour. All rights reserved.</p>
+                <ul class="social">
+                    <li class="social__item">
+                        <a href="https://es.linkedin.com/company/carrefoures" class="social__link" aria-label="LinkedIn" target="_blank" rel="noopener">
+                            <i class="fab fa-linkedin-in"></i> LinkedIn
+                        </a>
+                    </li>
+                    <li class="social__item">
+                        <a href="https://www.instagram.com/carrefoures/?hl=es" class="social__link" aria-label="Instagram" target="_blank" rel="noopener">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </a>
+                    </li>
+                    <li class="social__item">
+                        <a href="https://www.behance.net/search/projects/Carrefour" class="social__link" aria-label="Behance" target="_blank" rel="noopener">
+                            <i class="fab fa-behance"></i> Behance
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript file -->
+    <script src="js/script.js"></script>
+</body>
+</html>
